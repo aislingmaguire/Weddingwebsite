@@ -441,24 +441,6 @@ body {
   gap: 1.25rem;
 }
 
-.qr-frame {
-  padding: clamp(1rem, 4vw, 1.25rem);
-  background: #ffffff;
-  border: 1px solid var(--rule);
-}
-
-.qr-code {
-  display: block;
-  width: clamp(180px, 55vw, 240px);
-  height: auto;
-}
-
-.paypal-handle {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--ink);
-}
-
 .pay-button {
   display: flex;
   align-items: center;
