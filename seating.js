@@ -127,13 +127,13 @@
     resultEl.textContent = "We couldn't find that name. Please check the spelling, or ask a member of the wedding party.";
   }
 
-  function renderChoices(matches) {
+  function renderChoices(matches, promptText) {
     resultEl.className = "seat-result";
     resultEl.textContent = "";
 
     var prompt = document.createElement("p");
     prompt.className = "result-name";
-    prompt.textContent = "A few guests share that first name — which one are you?";
+    prompt.textContent = promptText;
     resultEl.appendChild(prompt);
 
     var list = document.createElement("div");
@@ -198,14 +198,26 @@
     renderLoading();
 
     getGuests().then(function (guests) {
-      var matches = guests.filter(function (g) {
+      var exactMatches = guests.filter(function (g) {
         return normalize(g.first) === first;
       });
 
-      if (matches.length === 1) {
-        renderResult(matches[0]);
-      } else if (matches.length > 1) {
-        renderChoices(matches);
+      if (exactMatches.length === 1) {
+        renderResult(exactMatches[0]);
+        return;
+      }
+
+      if (exactMatches.length > 1) {
+        renderChoices(exactMatches, "A few guests share that first name — which one are you?");
+        return;
+      }
+
+      var partialMatches = guests.filter(function (g) {
+        return normalize(g.first).indexOf(first) === 0;
+      });
+
+      if (partialMatches.length > 0) {
+        renderChoices(partialMatches, "We couldn't find an exact match. Did you mean:");
       } else {
         renderNotFound();
       }
