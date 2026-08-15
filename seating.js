@@ -7,7 +7,6 @@
   var form = document.getElementById("seat-form");
   var resultEl = document.getElementById("seat-result");
   var firstInput = document.getElementById("first-name");
-  var lastInput = document.getElementById("last-name");
 
   var guestsPromise = null;
 
@@ -114,6 +113,32 @@
     resultEl.textContent = "We couldn't find that name. Please check the spelling, or ask a member of the wedding party.";
   }
 
+  function renderChoices(matches) {
+    resultEl.className = "seat-result";
+    resultEl.textContent = "";
+
+    var prompt = document.createElement("p");
+    prompt.className = "result-name";
+    prompt.textContent = "A few guests share that first name — which one are you?";
+    resultEl.appendChild(prompt);
+
+    var list = document.createElement("div");
+    list.className = "name-choices";
+
+    matches.forEach(function (guest) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "name-choice";
+      button.textContent = guest.first + " " + guest.last;
+      button.addEventListener("click", function () {
+        renderResult(guest);
+      });
+      list.appendChild(button);
+    });
+
+    resultEl.appendChild(list);
+  }
+
   function addMenuRow(label, value) {
     if (!value) return;
     var row = document.createElement("div");
@@ -154,17 +179,19 @@
     event.preventDefault();
 
     var first = normalize(firstInput.value);
-    var last = normalize(lastInput.value);
-    if (!first || !last) return;
+    if (!first) return;
 
     renderLoading();
 
     getGuests().then(function (guests) {
-      var match = guests.find(function (g) {
-        return normalize(g.first) === first && normalize(g.last) === last;
+      var matches = guests.filter(function (g) {
+        return normalize(g.first) === first;
       });
-      if (match) {
-        renderResult(match);
+
+      if (matches.length === 1) {
+        renderResult(matches[0]);
+      } else if (matches.length > 1) {
+        renderChoices(matches);
       } else {
         renderNotFound();
       }

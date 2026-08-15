@@ -321,6 +321,40 @@ body {
   color: var(--ink-soft);
 }
 
+.name-choices {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.name-choice {
+  min-height: 44px;
+  padding: 0.9rem 0.1rem;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--rule);
+  border-radius: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.name-choices .name-choice:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.name-choice:hover,
+.name-choice:focus-visible {
+  color: var(--burgundy);
+}
+
+.name-choice:focus-visible {
+  outline: 1px solid var(--burgundy);
+  outline-offset: -2px;
+}
+
 .result-table {
   margin: 0 0 clamp(1.5rem, 5vw, 2rem);
   font-size: clamp(2rem, 9vw, 2.9rem);
