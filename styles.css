@@ -392,6 +392,83 @@ body {
   text-align: right;
 }
 
+/* ---------- Order of the day ---------- */
+
+.schedule-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.schedule-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: clamp(1.1rem, 4vw, 1.5rem) 0;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+}
+
+.schedule-time {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.schedule-event {
+  font-size: clamp(1.05rem, 3vw, 1.2rem);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ---------- Honeymoon fund ---------- */
+
+.honeymoon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+}
+
+.qr-frame {
+  padding: clamp(1rem, 4vw, 1.25rem);
+  background: #ffffff;
+  border: 1px solid var(--rule);
+}
+
+.qr-code {
+  display: block;
+  width: clamp(180px, 55vw, 240px);
+  height: auto;
+}
+
+.paypal-handle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.pay-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 1.5rem;
+  text-decoration: none;
+  margin-top: 0;
+}
+
+.honeymoon-text {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 42ch;
+}
+
 /* ---------- Reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
