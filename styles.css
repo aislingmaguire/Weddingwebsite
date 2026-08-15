@@ -201,6 +201,163 @@ body {
   color: var(--ink-soft);
 }
 
+/* ---------- Seat search ---------- */
+
+.back-link {
+  display: inline-block;
+  min-height: 44px;
+  line-height: 44px;
+  margin-bottom: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  opacity: 0.7;
+}
+
+.back-link:focus-visible {
+  outline: 1px solid var(--burgundy);
+  outline-offset: 4px;
+}
+
+.page-title {
+  margin: 0.5rem 0 0;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 8vw, 2.75rem);
+  color: var(--burgundy);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.seat-search {
+  text-align: center;
+}
+
+.seat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0 0 clamp(2rem, 6vw, 2.5rem);
+  text-align: left;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.field input {
+  min-height: 44px;
+  padding: 0.5rem 0.1rem;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+}
+
+.field input:focus-visible {
+  outline: none;
+  border-bottom: 1px solid var(--burgundy);
+}
+
+.seat-submit {
+  min-height: 48px;
+  margin-top: 0.5rem;
+  font-family: var(--serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  background: var(--burgundy);
+  border: 1px solid var(--burgundy);
+  border-radius: 0;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.seat-submit:hover,
+.seat-submit:focus-visible {
+  opacity: 0.82;
+}
+
+.seat-submit:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.seat-result:empty {
+  display: none;
+}
+
+.seat-result.loading,
+.seat-result.not-found {
+  padding: 1rem 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.result-name {
+  margin: 0 0 0.6rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.result-table {
+  margin: 0 0 clamp(1.5rem, 5vw, 2rem);
+  font-size: clamp(2rem, 9vw, 2.9rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+}
+
+.menu-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--rule);
+  text-align: left;
+}
+
+.menu-row:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.menu-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+}
+
+.menu-value {
+  font-size: 1rem;
+  color: var(--ink);
+  text-align: right;
+}
+
 /* ---------- Reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {

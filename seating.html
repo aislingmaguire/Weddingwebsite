@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F8F2E5">
+<meta name="description" content="Find your reception table and menu choices for Raphael &amp; Aisling's wedding.">
+<title>Find Your Seat | Raphael &amp; Aisling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="page">
+
+  <header class="intro">
+    <a class="back-link" href="index.html">&larr; Back</a>
+    <p class="eyebrow">Find your seat</p>
+    <h1 class="page-title">Table &amp; Menu</h1>
+  </header>
+
+  <hr class="rule">
+
+  <section class="seat-search" aria-labelledby="search-heading">
+    <h2 id="search-heading" class="section-heading">Enter your name</h2>
+
+    <noscript>
+      <p class="seat-result">Please enable JavaScript to search for your table.</p>
+    </noscript>
+
+    <form id="seat-form" class="seat-form" autocomplete="off">
+      <div class="field">
+        <label for="first-name">First name</label>
+        <input type="text" id="first-name" name="first-name" required autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="last-name">Last name</label>
+        <input type="text" id="last-name" name="last-name" required autocomplete="family-name">
+      </div>
+      <button type="submit" class="seat-submit">Find my seat</button>
+    </form>
+
+    <div id="seat-result" class="seat-result" role="status" aria-live="polite"></div>
+  </section>
+
+</main>
+<script src="seating.js"></script>
+</body>
+</html>
