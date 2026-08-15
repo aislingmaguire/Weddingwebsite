@@ -4,9 +4,9 @@
   --ink-soft: #4a453e;
   --burgundy: #7a2e2e;
   --rule: #d8cdb8;
-  --serif: "EB Garamond", "Cormorant Garamond", Georgia, serif;
-  --display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
-  --script: "Alex Brush", cursive;
+  --serif: "Crimson Pro", Georgia, serif;
+  --display: "Crimson Pro", Georgia, serif;
+  --script: "Lavishly Yours", cursive;
   --script-casual: "Caveat", cursive;
 }
 
@@ -55,10 +55,10 @@ body {
   margin: 0.9rem 0 1.1rem;
   font-family: var(--script);
   font-weight: 400;
-  font-size: clamp(2.6rem, 12vw, 4.1rem);
-  line-height: 1.2;
+  font-size: clamp(2.4rem, 11vw, 3.75rem);
+  line-height: 1.25;
   color: var(--burgundy);
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -175,11 +175,21 @@ body {
   text-align: center;
 }
 
+.keepsake-frame {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
 .keepsake {
   display: block;
-  width: clamp(84px, 22vw, 120px);
+  width: 0;
+  min-width: 100%;
   height: auto;
-  margin: 0 auto clamp(1.5rem, 5vw, 2rem);
+  margin: 0 0 clamp(1rem, 4vw, 1.5rem);
   opacity: 0.55;
   mix-blend-mode: multiply;
 }
