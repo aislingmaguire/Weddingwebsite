@@ -69,16 +69,10 @@
     });
   }
 
-  function findColumn(headers, keywords) {
-    var normalizedHeaders = headers.map(normalize);
-    for (var k = 0; k < keywords.length; k++) {
-      var idx = normalizedHeaders.findIndex(function (h) {
-        return h.indexOf(keywords[k]) !== -1;
-      });
-      if (idx !== -1) return idx;
-    }
-    return -1;
-  }
+  // The sheet's header row labels (columns D-H) don't line up with where
+  // the actual data lives (columns A-E), so we read by fixed position
+  // rather than trusting the header text.
+  var COLUMNS = { first: 0, last: 1, starter: 2, main: 3, table: 4 };
 
   function loadGuests() {
     return fetch(CSV_URL).then(function (response) {
@@ -88,22 +82,13 @@
       var rows = parseCSV(text);
       if (rows.length < 2) return [];
 
-      var headers = rows[0];
-      var cols = {
-        first: findColumn(headers, ["first name", "first"]),
-        last: findColumn(headers, ["last name", "surname", "last"]),
-        table: findColumn(headers, ["table number", "table"]),
-        starter: findColumn(headers, ["starter", "appetiser", "appetizer", "first course"]),
-        main: findColumn(headers, ["main course", "main"])
-      };
-
       return rows.slice(1).map(function (r) {
         return {
-          first: cols.first !== -1 ? (r[cols.first] || "").trim() : "",
-          last: cols.last !== -1 ? (r[cols.last] || "").trim() : "",
-          table: cols.table !== -1 ? (r[cols.table] || "").trim() : "",
-          starter: cols.starter !== -1 ? (r[cols.starter] || "").trim() : "",
-          main: cols.main !== -1 ? (r[cols.main] || "").trim() : ""
+          first: (r[COLUMNS.first] || "").trim(),
+          last: (r[COLUMNS.last] || "").trim(),
+          starter: (r[COLUMNS.starter] || "").trim(),
+          main: (r[COLUMNS.main] || "").trim(),
+          table: (r[COLUMNS.table] || "").trim()
         };
       });
     });
