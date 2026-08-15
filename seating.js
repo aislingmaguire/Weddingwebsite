@@ -212,8 +212,13 @@
         return;
       }
 
+      // Match in either direction: typed text may be the start of a longer
+      // recorded name ("Clio" -> "Cliodhna"), or the recorded name may be a
+      // shortened form of what was typed ("Raphael" -> "Raph").
       var partialMatches = guests.filter(function (g) {
-        return normalize(g.first).indexOf(first) === 0;
+        var guestFirst = normalize(g.first);
+        if (!guestFirst) return false;
+        return guestFirst.indexOf(first) === 0 || first.indexOf(guestFirst) === 0;
       });
 
       if (partialMatches.length > 0) {
