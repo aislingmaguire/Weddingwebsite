@@ -7,6 +7,7 @@
   --serif: "EB Garamond", "Cormorant Garamond", Georgia, serif;
   --display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
   --script: "Alex Brush", cursive;
+  --script-casual: "Caveat", cursive;
 }
 
 * {
@@ -174,12 +175,21 @@ body {
   text-align: center;
 }
 
+.keepsake {
+  display: block;
+  width: clamp(84px, 22vw, 120px);
+  height: auto;
+  margin: 0 auto clamp(1.5rem, 5vw, 2rem);
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+}
+
 .thank-you {
   margin: 0 0 0.5rem;
-  font-family: var(--script);
-  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  font-family: var(--script-casual);
+  font-size: clamp(1.9rem, 7vw, 2.5rem);
   color: var(--burgundy);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .signature {
