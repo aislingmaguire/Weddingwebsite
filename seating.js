@@ -2,7 +2,14 @@
   "use strict";
 
   var SHEET_ID = "1uYER1VkLKmOkxeB8sdENLGrdn1zKniywxEtBZrkctfA";
-  var CSV_URL = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/export?format=csv&gid=0";
+  // The plain export?format=csv endpoint doesn't send CORS headers, so
+  // fetch() fails from a different origin even though the sheet is public.
+  // The gviz endpoint is built for cross-origin embedding and sends them,
+  // so it's tried first; the export endpoint is kept as a fallback.
+  var CSV_URLS = [
+    "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=out:csv&gid=0",
+    "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/export?format=csv&gid=0"
+  ];
 
   var form = document.getElementById("seat-form");
   var resultEl = document.getElementById("seat-result");
@@ -73,11 +80,18 @@
   // rather than trusting the header text.
   var COLUMNS = { first: 0, last: 1, starter: 2, main: 3, table: 4 };
 
-  function loadGuests() {
-    return fetch(CSV_URL).then(function (response) {
+  function fetchCSV(urls) {
+    return fetch(urls[0]).then(function (response) {
       if (!response.ok) throw new Error("Failed to load guest list");
       return response.text();
-    }).then(function (text) {
+    }).catch(function (err) {
+      if (urls.length <= 1) throw err;
+      return fetchCSV(urls.slice(1));
+    });
+  }
+
+  function loadGuests() {
+    return fetchCSV(CSV_URLS).then(function (text) {
       var rows = parseCSV(text);
       if (rows.length < 2) return [];
 
