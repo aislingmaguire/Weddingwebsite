@@ -187,6 +187,11 @@
 
     addMenuRow("Starter", guest.starter);
     addMenuRow("Main", guest.main);
+
+    var note = document.createElement("p");
+    note.className = "seat-note";
+    note.textContent = "Cake and desserts will be served canapé style later in the evening. We hope you enjoy your meal!";
+    resultEl.appendChild(note);
   }
 
   form.addEventListener("submit", function (event) {

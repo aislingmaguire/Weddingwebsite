@@ -392,6 +392,14 @@ body {
   text-align: right;
 }
 
+.seat-note {
+  margin: clamp(1.5rem, 5vw, 2rem) 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
 /* ---------- Order of the day ---------- */
 
 .schedule-list {
