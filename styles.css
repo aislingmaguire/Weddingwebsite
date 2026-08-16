@@ -405,6 +405,14 @@ body {
   margin-bottom: clamp(2.25rem, 7vw, 3rem);
 }
 
+.dietary-note {
+  margin: clamp(1.5rem, 5vw, 2rem) 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink);
+  text-align: center;
+}
+
 /* ---------- Order of the day ---------- */
 
 .schedule-list {

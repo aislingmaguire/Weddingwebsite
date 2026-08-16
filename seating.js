@@ -75,10 +75,10 @@
     });
   }
 
-  // The sheet's header row labels (columns D-H) don't line up with where
-  // the actual data lives (columns A-E), so we read by fixed position
-  // rather than trusting the header text.
-  var COLUMNS = { first: 0, last: 1, starter: 2, main: 3, table: 4 };
+  // The sheet's header row labels don't line up with where the actual
+  // data lives, so we read by fixed position rather than trusting the
+  // header text: A-D are name/menu, E is a dietary note, F is table number.
+  var COLUMNS = { first: 0, last: 1, starter: 2, main: 3, dietary: 4, table: 5 };
 
   function fetchCSV(urls) {
     return fetch(urls[0]).then(function (response) {
@@ -101,6 +101,7 @@
           last: (r[COLUMNS.last] || "").trim(),
           starter: (r[COLUMNS.starter] || "").trim(),
           main: (r[COLUMNS.main] || "").trim(),
+          dietary: (r[COLUMNS.dietary] || "").trim(),
           table: (r[COLUMNS.table] || "").trim()
         };
       });
@@ -187,6 +188,13 @@
 
     addMenuRow("Starter", guest.starter);
     addMenuRow("Main", guest.main);
+
+    if (guest.dietary) {
+      var dietaryNote = document.createElement("p");
+      dietaryNote.className = "dietary-note";
+      dietaryNote.textContent = "We've noted the following dietary requirements: " + guest.dietary;
+      resultEl.appendChild(dietaryNote);
+    }
 
     var note = document.createElement("p");
     note.className = "seat-note";
