@@ -194,6 +194,11 @@
       dietaryNote.className = "dietary-note";
       dietaryNote.textContent = "We've noted the following dietary requirements: " + guest.dietary;
       resultEl.appendChild(dietaryNote);
+
+      var dietaryFollowUp = document.createElement("p");
+      dietaryFollowUp.className = "dietary-note";
+      dietaryFollowUp.textContent = "Please do kindly check with our servers on the day, who will be happy to confirm what's suitable for your requirements.";
+      resultEl.appendChild(dietaryFollowUp);
     }
 
     var note = document.createElement("p");
