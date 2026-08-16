@@ -441,14 +441,14 @@ body {
   gap: 1.25rem;
 }
 
-.pay-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.payment-list,
+.account-details {
   width: 100%;
-  padding: 0 1.5rem;
-  text-decoration: none;
-  margin-top: 0;
+  text-align: left;
+}
+
+.account-details .menu-row:first-child {
+  border-top: none;
 }
 
 .honeymoon-text {
