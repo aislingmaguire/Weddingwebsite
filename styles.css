@@ -400,6 +400,11 @@ body {
   text-align: center;
 }
 
+.rule + .seat-note {
+  margin-top: 0;
+  margin-bottom: clamp(2.25rem, 7vw, 3rem);
+}
+
 /* ---------- Order of the day ---------- */
 
 .schedule-list {
@@ -429,6 +434,12 @@ body {
   font-size: clamp(1.05rem, 3vw, 1.2rem);
   font-weight: 500;
   color: var(--ink);
+}
+
+.schedule-address {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  max-width: 32ch;
 }
 
 /* ---------- Honeymoon fund ---------- */
