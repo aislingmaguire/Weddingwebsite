@@ -413,10 +413,6 @@ body {
   text-align: center;
 }
 
-.dietary-note + .dietary-note {
-  margin-top: 0.6rem;
-}
-
 /* ---------- Order of the day ---------- */
 
 .schedule-list {

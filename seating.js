@@ -194,16 +194,11 @@
       dietaryNote.className = "dietary-note";
       dietaryNote.textContent = "We've noted the following dietary requirements: " + guest.dietary;
       resultEl.appendChild(dietaryNote);
-
-      var dietaryFollowUp = document.createElement("p");
-      dietaryFollowUp.className = "dietary-note";
-      dietaryFollowUp.textContent = "Please do kindly check with our servers on the day, who will be happy to confirm what's suitable for your requirements.";
-      resultEl.appendChild(dietaryFollowUp);
     }
 
     var note = document.createElement("p");
     note.className = "seat-note";
-    note.textContent = "Cake and desserts will be served canapé style later in the evening. We hope you enjoy your meal!";
+    note.textContent = "Cake and desserts will be served canapé style later in the evening; if you have any dietary requirements, do please check with our servers, who will be happy to confirm what's suitable for you. We hope you enjoy your meal!";
     resultEl.appendChild(note);
   }
 
