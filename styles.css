@@ -470,6 +470,22 @@ body {
   max-width: 42ch;
 }
 
+.inline-link {
+  color: var(--burgundy);
+  text-underline-offset: 2px;
+}
+
+.inline-link:hover,
+.inline-link:focus-visible {
+  opacity: 0.75;
+}
+
+.day-two-image {
+  display: block;
+  width: clamp(200px, 60vw, 320px);
+  height: auto;
+}
+
 /* ---------- Reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
