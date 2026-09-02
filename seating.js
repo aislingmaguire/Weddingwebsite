@@ -198,7 +198,7 @@
 
     var note = document.createElement("p");
     note.className = "seat-note";
-    note.textContent = "Cake and desserts will be served canapé style later in the evening; if you have any dietary requirements, do please check with our servers, who will be happy to confirm what's suitable for you. We hope you enjoy your meal!";
+    note.textContent = "Cake and desserts will be served canapé style after the first dance, with evening food served from 9:30 PM. We hope you enjoy!";
     resultEl.appendChild(note);
   }
 
