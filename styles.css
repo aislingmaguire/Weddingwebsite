@@ -398,6 +398,7 @@ body {
   line-height: 1.6;
   color: var(--ink-soft);
   text-align: center;
+  white-space: pre-line;
 }
 
 .rule + .seat-note {
